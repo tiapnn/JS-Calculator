@@ -1,11 +1,45 @@
 function displayNum(num) {
   var currNum = $('#display').html();
-  currNum = currNum + num
+    if (currNum == "0") {
+      $('#display').html(num);
+    } else {
+      $('#display').html(currNum + num);
+    }
 }
 
+function uguale() {
+  var currNum = $('#display').html();
+  $('#display').html(eval(currNum));
+}
 
+function clean() {
+  $('#display').html("0");
+}
 
+function zero() {
+  var currNum = $('#display').html();
+  if (currNum == 0) {
+    $('#display').html("0.");
+  } else {
+    var currNum = $('#display').html();
+    $('#display').html(currNum + 0);
+  }
+  
+}
 
+function punto(num) {
+  var currNum = $('#display').html();
+  if (currNum.endsWith('.')) {
+    $('#display').css("color", "red");
+  } else {
+    if (currNum == "0") {
+      $('#display').html(num);
+    } else {
+      $('#display').html(currNum + num);
+    }
+  }
+  
+}
 
 
 

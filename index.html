@@ -12,35 +12,35 @@
 <body>
   <div id="calculator-container" class="container-fluid">
     <div class="row">
-      <span id="display"></span>
+      <span id="display">0</span>
     </div>
     <div class="row">
-      <button id="clear" class="pulse double-h">AC</button>
-      <button id="divide" value="/" class="pulse">/</button>
-      <button id="multiply" value="*" class="pulse">X</button>
+      <button id="clear" class="pulse double-h" onclick="clean()">AC</button>
+      <button id="divide" value="/" class="pulse" onclick="displayNum('/')">/</button>
+      <button id="multiply" value="*" class="pulse" onclick="displayNum('*')">X</button>
     </div>
     <div class="row">
-      <button id="seven" value="7" class="raise">7</button>
-      <button id="eight" value="8" class="raise">8</button>
-      <button id="nine" value="9" class="raise">9</button>
-      <button id="subtract" value="-" class="pulse">-</button>
+      <button id="seven" value="7" class="raise" onclick="displayNum(7)">7</button>
+      <button id="eight" value="8" class="raise" onclick="displayNum(8)">8</button>
+      <button id="nine" value="9" class="raise" onclick="displayNum(9)">9</button>
+      <button id="subtract" value="-" class="pulse" onclick="displayNum('-')">-</button>
     </div>
 
     <div class="row">
-      <button id="four" value="4" class="raise">4</button>
-      <button id="five" value="5" class="raise">5</button>
-      <button id="six" value="6" class="raise">6</button>
-      <button id="add" value="+" class="pulse">+</button>
+      <button id="four" value="4" class="raise" onclick="displayNum(4)">4</button>
+      <button id="five" value="5" class="raise" onclick="displayNum(5)">5</button>
+      <button id="six" value="6" class="raise" onclick="displayNum(6)">6</button>
+      <button id="add" value="+" class="pulse" onclick="displayNum('+')">+</button>
     </div>
     <div class="row">
       <button id="one" value="1" class="raise" onclick="displayNum(1)" >1</button>
-      <button id="two" value="2" class="raise">2</button>
-      <button id="three" value="3" class="raise">2</button>
-      <button id="equals" class="pulse double-v">=</button>
+      <button id="two" value="2" class="raise" onclick="displayNum(2)">2</button>
+      <button id="three" value="3" class="raise" onclick="displayNum(3)">2</button>
+      <button id="equals" class="pulse double-v" onclick="uguale()" >=</button>
     </div>
     <div class="row bottom-row">
-      <button id="zero" value="0" class="raise double-h">0</button>
-      <button id="decimal" value="." class="raise">.</button>
+      <button id="zero" value="0" class="raise double-h" onclick="zero()">0</button>
+      <button id="decimal" value="." class="raise" onclick="punto('.')">.</button>
     </div>
   </div>
 </body>
