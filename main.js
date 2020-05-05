@@ -11,7 +11,7 @@ function displayNum(num) {
 
 function uguale() {
   var currNum = $('#display').html();
-  $('#display').html(eval(currNum));
+  $('#display').html(parseFloat(eval(currNum).toFixed(5)));
 }
 
 function clean() {
@@ -35,7 +35,7 @@ function punto(num) {
   var lastValString = stringSplit[stringSplit.length - 1];
   var testRegex = /\D/;
   if (testRegex.test(lastValString)) {
-    $('#display').css("color", "red");
+    $('#display').toggleClass("shaky");
   } else {
     if (currNum == "0") {
       $('#display').html(num);
@@ -54,7 +54,7 @@ function segni(num) {
   if (testRegex.test(lastValString) && lastValString != '-') {
     $('#display').html(currNum.slice(0, -1)  + num);
   } else if (testRegex.test(lastValString) && lastValString == '-' && !testRegex.test(penlastValString)) {
-    $('#display').css("color", "red");
+    $('#display').toggleClass("shaky");
   } else if (testRegex.test(lastValString) && lastValString == '-' && testRegex.test(penlastValString)) {
     $('#display').html(currNum.slice(0, -2)  + num);
   } else {
@@ -72,7 +72,7 @@ function segnoMeno(num) {
   var lastValString = currNum.charAt(currNum.length-1);
   var testRegex = /\D/;
   if (testRegex.test(lastValString) && lastValString == '-') {
-    $('#display').css("color", "red");
+    $('#display').toggleClass("shaky");
   } else {
     if (currNum == "0") {
       $('#display').html(num);
