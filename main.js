@@ -1,3 +1,5 @@
+
+
 function displayNum(num) {
   var currNum = $('#display').html();
     if (currNum == "0") {
@@ -29,7 +31,10 @@ function zero() {
 
 function punto(num) {
   var currNum = $('#display').html();
-  if (currNum.endsWith('.')) {
+  var stringSplit = currNum.split(/[/*+-]/);
+  var lastValString = stringSplit[stringSplit.length - 1];
+  var testRegex = /\D/;
+  if (testRegex.test(lastValString)) {
     $('#display').css("color", "red");
   } else {
     if (currNum == "0") {
@@ -40,6 +45,44 @@ function punto(num) {
   }
   
 }
+
+function segni(num) {
+  var currNum = $('#display').html();
+  var lastValString = currNum.charAt(currNum.length-1);
+  var penlastValString = currNum.charAt(currNum.length-2);
+  var testRegex = /\D/;
+  if (testRegex.test(lastValString) && lastValString != '-') {
+    $('#display').html(currNum.slice(0, -1)  + num);
+  } else if (testRegex.test(lastValString) && lastValString == '-' && !testRegex.test(penlastValString)) {
+    $('#display').css("color", "red");
+  } else if (testRegex.test(lastValString) && lastValString == '-' && testRegex.test(penlastValString)) {
+    $('#display').html(currNum.slice(0, -2)  + num);
+  } else {
+    if (currNum == "0") {
+      $('#display').html(num);
+    } else {
+      $('#display').html(currNum + num);
+    }
+  }
+
+}
+
+function segnoMeno(num) {
+  var currNum = $('#display').html();
+  var lastValString = currNum.charAt(currNum.length-1);
+  var testRegex = /\D/;
+  if (testRegex.test(lastValString) && lastValString == '-') {
+    $('#display').css("color", "red");
+  } else {
+    if (currNum == "0") {
+      $('#display').html(num);
+    } else {
+      $('#display').html(currNum + num);
+    }
+  }
+
+}
+
 
 
 
