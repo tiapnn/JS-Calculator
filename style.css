@@ -1,0 +1,87 @@
+body {
+  color: #fff;
+  background: #17181c;
+  font: 300 1em 'Fira Sans', sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+
+#calculator-container {
+	position: fixed;
+ 	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+	border-radius: 10px;		
+}
+
+
+#display {
+  padding: 3em;
+}
+
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+
+.double-h {
+  width: 116px;
+}
+
+.double-v {
+  height: 117px;
+
+}
+
+.bottom-row {
+  margin-top: -4.15em;
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+.raise {
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+
+.pulse:hover, .pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+ }
+}
+.raise:hover, .raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+

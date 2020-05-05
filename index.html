@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="main.js"></script>
+	<link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="calculator-container" class="container-fluid">
+    <div class="row">
+      <span id="display"></span>
+    </div>
+    <div class="row">
+      <button id="clear" class="pulse double-h">AC</button>
+      <button id="divide" value="/" class="pulse">/</button>
+      <button id="multiply" value="*" class="pulse">X</button>
+    </div>
+    <div class="row">
+      <button id="seven" value="7" class="raise">7</button>
+      <button id="eight" value="8" class="raise">8</button>
+      <button id="nine" value="9" class="raise">9</button>
+      <button id="subtract" value="-" class="pulse">-</button>
+    </div>
+
+    <div class="row">
+      <button id="four" value="4" class="raise">4</button>
+      <button id="five" value="5" class="raise">5</button>
+      <button id="six" value="6" class="raise">6</button>
+      <button id="add" value="+" class="pulse">+</button>
+    </div>
+    <div class="row">
+      <button id="one" value="1" class="raise" onclick="displayNum(1)" >1</button>
+      <button id="two" value="2" class="raise">2</button>
+      <button id="three" value="3" class="raise">2</button>
+      <button id="equals" class="pulse double-v">=</button>
+    </div>
+    <div class="row bottom-row">
+      <button id="zero" value="0" class="raise double-h">0</button>
+      <button id="decimal" value="." class="raise">.</button>
+    </div>
+  </div>
+</body>
+</html>
