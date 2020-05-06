@@ -1,52 +1,62 @@
-
+let sepo = true;
 
 function displayNum(num) {
-  var currNum = $('#display').html();
+  if (sepo) {
+   var currNum = $('#display').html();
     if (currNum == "0") {
       $('#display').html(num);
     } else {
       $('#display').html(currNum + num);
-    }
+    } 
+  } else {
+    $('#display').toggleClass("shaky");
+  }
+  
 }
 
 function uguale() {
   var currNum = $('#display').html();
-  $('#display').html(parseFloat(eval(currNum).toFixed(5)));
-}
-
-function clean() {
-  $('#display').html("0");
-}
-
-function zero() {
-  var currNum = $('#display').html();
-  if (currNum == 0) {
-    $('#display').html("0.");
-  } else {
-    var currNum = $('#display').html();
-    $('#display').html(currNum + 0);
-  }
-  
-}
-
-function punto(num) {
-  var currNum = $('#display').html();
-  var stringSplit = currNum.split(/[/*+-]/);
-  var lastValString = stringSplit[stringSplit.length - 1];
+  var lastValString = currNum.charAt(currNum.length-1);
   var testRegex = /\D/;
   if (testRegex.test(lastValString)) {
     $('#display').toggleClass("shaky");
   } else {
-    if (currNum == "0") {
-      $('#display').html(num);
-    } else {
-      $('#display').html(currNum + num);
-    }
+      sepo = false;
+      $('#display').html(parseFloat(eval(currNum).toFixed(5)));
   }
+}
+
+function clean() {
+  sepo = true;
+  $('#display').html("0");
+}
+
+
+
+function punto(num) {
+  if (sepo) {
+    var currNum = $('#display').html();
+    var stringSplit = currNum.split(/[/*+-]/);
+    var lastValString = stringSplit[stringSplit.length - 1];
+    var testRegex = /\D/;
+    if (testRegex.test(lastValString)) {
+      $('#display').toggleClass("shaky");
+    } else {
+      if (currNum == "0") {
+        $('#display').html('0'+num);
+      } else {
+        $('#display').html(currNum + num);
+      }
+    }
+  } else {
+    $('#display').toggleClass("shaky");
+  }
+  
   
 }
 
 function segni(num) {
+  sepo = true;
   var currNum = $('#display').html();
   var lastValString = currNum.charAt(currNum.length-1);
   var penlastValString = currNum.charAt(currNum.length-2);
@@ -59,7 +69,7 @@ function segni(num) {
     $('#display').html(currNum.slice(0, -2)  + num);
   } else {
     if (currNum == "0") {
-      $('#display').html(num);
+      $('#display').toggleClass("shaky");
     } else {
       $('#display').html(currNum + num);
     }
@@ -68,6 +78,7 @@ function segni(num) {
 }
 
 function segnoMeno(num) {
+  sepo = true;
   var currNum = $('#display').html();
   var lastValString = currNum.charAt(currNum.length-1);
   var testRegex = /\D/;

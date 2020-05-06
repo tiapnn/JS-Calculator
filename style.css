@@ -70,7 +70,7 @@ button {
 
 .pulse {
   --color: #ef6eae;
-  --hover: #ef8f6e;
+  --hover: #830a69;
 }
 .raise {
   --color: #ffa260;
@@ -119,10 +119,12 @@ button {
 
 
 
-@media screen and (max-width: 500px) {	
+@media screen and (max-width: 530px) {	
 
   #calculator-container {
-    width:77vw;
+ 	  top: auto;
+    left: auto;
+    transform: translate(-0%, -0%);
     
   }
 }
