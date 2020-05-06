@@ -9,7 +9,10 @@ function displayNum(num) {
       $('#display').html(currNum + num);
     } 
   } else {
-    $('#display').toggleClass("shaky");
+    $('#display').toggleClass("shaky").delay(500).queue(function(next){
+      $('#display').toggleClass("shaky");
+      next();
+    });
   }
   
 }
@@ -19,7 +22,10 @@ function uguale() {
   var lastValString = currNum.charAt(currNum.length-1);
   var testRegex = /\D/;
   if (testRegex.test(lastValString)) {
-    $('#display').toggleClass("shaky");
+    $('#display').toggleClass("shaky").delay(500).queue(function(next){
+      $('#display').toggleClass("shaky");
+      next();
+    });
   } else {
       sepo = false;
       $('#display').html(parseFloat(eval(currNum).toFixed(5)));
@@ -40,7 +46,10 @@ function punto(num) {
     var lastValString = stringSplit[stringSplit.length - 1];
     var testRegex = /\D/;
     if (testRegex.test(lastValString)) {
-      $('#display').toggleClass("shaky");
+      $('#display').toggleClass("shaky").delay(500).queue(function(next){
+        $('#display').toggleClass("shaky");
+        next();
+      });
     } else {
       if (currNum == "0") {
         $('#display').html('0'+num);
@@ -49,7 +58,10 @@ function punto(num) {
       }
     }
   } else {
-    $('#display').toggleClass("shaky");
+    $('#display').toggleClass("shaky").delay(500).queue(function(next){
+      $('#display').toggleClass("shaky");
+      next();
+    });
   }
   
   
@@ -64,12 +76,18 @@ function segni(num) {
   if (testRegex.test(lastValString) && lastValString != '-') {
     $('#display').html(currNum.slice(0, -1)  + num);
   } else if (testRegex.test(lastValString) && lastValString == '-' && !testRegex.test(penlastValString)) {
-    $('#display').toggleClass("shaky");
+    $('#display').toggleClass("shaky").delay(500).queue(function(next){
+      $('#display').toggleClass("shaky");
+      next();
+    });
   } else if (testRegex.test(lastValString) && lastValString == '-' && testRegex.test(penlastValString)) {
     $('#display').html(currNum.slice(0, -2)  + num);
   } else {
     if (currNum == "0") {
-      $('#display').toggleClass("shaky");
+      $('#display').toggleClass("shaky").delay(500).queue(function(next){
+        $('#display').toggleClass("shaky");
+        next();
+      });
     } else {
       $('#display').html(currNum + num);
     }
@@ -83,7 +101,10 @@ function segnoMeno(num) {
   var lastValString = currNum.charAt(currNum.length-1);
   var testRegex = /\D/;
   if (testRegex.test(lastValString) && lastValString == '-') {
-    $('#display').toggleClass("shaky");
+    $('#display').toggleClass("shaky").delay(500).queue(function(next){
+      $('#display').toggleClass("shaky");
+      next();
+    });
   } else {
     if (currNum == "0") {
       $('#display').html(num);
@@ -121,12 +142,12 @@ function segnoMeno(num) {
 //     backgroundColor: colors[color],
 //     color: colors[color]
 //   },
-//   1000
+//   500
 // );
 
 // $(".button").animate(
 //   {
 //     backgroundColor: colors[color]
 //   },
-//   1000
+//   500
 // );
